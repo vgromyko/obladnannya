@@ -1,0 +1,29 @@
+.cl-l {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 2px;
+    text-align: left;
+    margin-right: 2px;
+    margin-left: 4px;
+    margin-top: 7px;
+}
+
+.cl-c {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 2px;
+    text-align: center;
+    margin-right: 2px;
+    margin-left: 4px;
+    margin-top: 7px;
+}
+
+.cl-r {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 2px;
+    text-align: right;
+    margin-right: 2px;
+    margin-left: 4px;
+    margin-top: 7px;
+}
