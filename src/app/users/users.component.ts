@@ -20,16 +20,18 @@ export class UsersComponent implements AfterViewInit {
   public theme = 'base';
   public sorttogglestates: any = 2;
   public isPermit: any = '';
-  public myToken: string = "";
-  public sid: string ="";
-  public gridWidth: number  = 1000;
+  public myToken: string = '';
+  public sid: string = '';
+  public gridWidth: number = 1000;
 
   ngAfterViewInit(): void{
 
     this.myToken = this.aComponent.token ;
     this.sid = this.aComponent.sid ;
     this.isPermit = this.aComponent.loginData ;
-    if( this.isPermit ){
+
+    if (this.isPermit)
+    {
       this.myGrid.showloadelement();
       this.getUsers();
     }
@@ -108,20 +110,21 @@ export class UsersComponent implements AfterViewInit {
 
 
 
-getUsers(){
-
+  getUsers(){
+  /*
   this.source.localdata =  this.apiService.usrData.UserCollection.rows ; 
   this.myGrid.updatebounddata()  ;
+  */
 
-/*
- 
+  console.log('getUsers sid='+this.sid);
+
   this.apiService.getUsers(this.sid)
-    .subscribe((data) => {
+      .subscribe((data) => {
       this.source.localdata = data.UserCollection.rows;
       this.myGrid.updatebounddata()  ;
     });
-*/
-}
+
+  }
 
   updatefilterconditions = (type: string, defaultconditions: any): string[] => {
     let stringcomparisonoperators = ['CONTAINS', 'DOES_NOT_CONTAIN'];
@@ -142,17 +145,17 @@ getUsers(){
 
 
   ready = (): void => {
-      let localizationObject = {
-          filterstringcomparisonoperators: ['contains', 'does not contain'],
+    let localizationObject = {
+        filterstringcomparisonoperators: ['contains', 'does not contain'],
           // filter numeric comparison operators.
-          filternumericcomparisonoperators: ['less than', 'greater than'],
+        filternumericcomparisonoperators: ['less than', 'greater than'],
           // filter date comparison operators.
-          filterdatecomparisonoperators: ['less than', 'greater than'],
+        filterdatecomparisonoperators: ['less than', 'greater than'],
           // filter bool comparison operators.
-          filterbooleancomparisonoperators: ['equal', 'not equal']
-      }
+        filterbooleancomparisonoperators: ['equal', 'not equal']
+    }
 
-      this.myGrid.localizestrings(localizationObject);
+    this.myGrid.localizestrings(localizationObject);
   }
 
   onSelect(users){

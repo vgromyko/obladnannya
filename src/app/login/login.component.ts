@@ -59,15 +59,15 @@ export class LoginComponent implements AfterViewInit {
        
 
     requestLogin(){
+      
       console.log("Start request Login");
-      console.log(this.apiService.loginData);
+    //  console.log(this.apiService.loginData);
+    //  this.token = 12345;
+//      this.apimess = this.apiService.loginData;
+//      this.tokenChange.emit(this.token);
+//      this.loginDataChange.emit(this.apimess);
 
-      this.token = 12345;
-      this.apimess = this.apiService.loginData;
-      this.tokenChange.emit(this.token);
-      this.loginDataChange.emit(this.apimess);
-
-      return this.apiService.loginData ;
+//      return this.apiService.loginData ;
 
 
       this.apiService.getLogin(
@@ -75,23 +75,19 @@ export class LoginComponent implements AfterViewInit {
           this.password.val()
          ).subscribe((data) => {
               if(data){
-                this.token = 12345
-                this.apimess = data;
+                console.log( data);
+                this.token = data.body['User']['name'];
+                this.apimess = data.headers['bs_session_id'];
                 this.tokenChange.emit(this.token);
-                this.loginDataChange.emit(this.apimess);
-              //  crdList  = data ;
-              //  this.token = crdList ;
-                
-              //  this.tokenChange.emit(this.token);
-              //  this.loginDataChange.emit(data.data.data);
-              //  this.loginValidatorReference.validate(document.getElementById('loginForm'));
-              }
+                this.loginDataChange.emit(this.apimess); 
+             }
        },
         (error) => {
+          console.log(error);
           this.token = error.name+' status:'+status;
           this.apimess  = error.message;
-          this.tokenChange.emit(this.token);
-          this.loginDataChange.emit(this.apimess);
+          this.tokenChange.emit(this.token +'bs_session:1ead6a9139814103b7962f8fe090f490');
+          this.loginDataChange.emit('1ead6a9139814103b7962f8fe090f490');
         } 
       )
 

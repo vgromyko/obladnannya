@@ -94,11 +94,12 @@ export class CardsComponent implements AfterViewInit {
   }
 
   getCardsData(){
-    this.source.localdata =  this.apiService.crdData.CardCollection.rows ; 
-    this.myGrid.updatebounddata()  ;
-
+  /* 
+  //  this.source.localdata =  this.apiService.crdData.CardCollection.rows ; 
+  //  this.myGrid.updatebounddata()  ;
+ */
+  console.log('getCards sid='+this.sid);
  
-    /*
     this.apiService.getCards(this.sid)
     .subscribe((data) => {
         this.source.localdata =  data.CardCollection.rows ; 
@@ -107,7 +108,7 @@ export class CardsComponent implements AfterViewInit {
 
     } ) ;
 
-    */
+    
   }
 
 

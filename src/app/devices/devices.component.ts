@@ -23,7 +23,7 @@ export class DevicesComponent implements AfterViewInit {
   public sorttogglestates: any = 2;
   public isPermit: any = '';
   public myToken: string = "";
-  public sid: string ="";
+  public sid: string = "";
   public gridWidth: number  = 1000;
 
   ngAfterViewInit(): void{
@@ -93,18 +93,18 @@ myGridOnContextMenu(): boolean {
 
 
 getDevices(){
-
+/*
   this.source.localdata =  this.apiService.devsData.DeviceCollection.rows ; 
   this.myGrid.updatebounddata()  ;
-
-/*
+*/
+  console.log('getDevices sid='+this.sid);
   this.apiService.getDevices(this.sid)
      .subscribe((data) => {
     this.source.localdata = data.DeviceCollection.rows;
     this.myGrid.updatebounddata()  ;
    }) ;
 
-*/
+
 
 }
 

@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   title  = '';
   token  = '';
-  sid  = '';
+  sid  = "dd3151fbb228471196d37fa6c1c95fbc";
   isGrid = false;
   lginlgout = '';
   loginData: any ;
